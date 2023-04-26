@@ -1,0 +1,12 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: network-partition-targeted
+  namespace: chaosmesh
+spec:
+  action: partition
+  mode: one
+  direction: to
+  externalTargets:
+    - "http://rewards-micro-service.rewards-micro.svc.cluster.local/rewards/rewardstable1/get_points"
+  duration: "3m"
